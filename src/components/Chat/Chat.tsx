@@ -327,6 +327,7 @@ const Chat = ({
                 placeholder,
                 setState,
                 state,
+                actions,
               })
             }
             elseShow={inputArea}
