@@ -266,11 +266,8 @@ const Chat = ({
     placeholder = placeholderText;
   }
 
-   const inputArea = (
-    <form
-      className="react-chatbot-kit-chat-input-form"
-      onSubmit={handleSubmit}
-    >
+  const inputArea = (
+    <form className="react-chatbot-kit-chat-input-form" onSubmit={handleSubmit}>
       <input
         className="react-chatbot-kit-chat-input"
         placeholder={placeholder}
@@ -285,7 +282,7 @@ const Chat = ({
       </button>
     </form>
   );
-  
+
   return (
     <div className="react-chatbot-kit-chat-container">
       <div className="react-chatbot-kit-chat-inner-container">
@@ -321,9 +318,17 @@ const Chat = ({
         <div className="react-chatbot-kit-chat-input-container">
           <ConditionallyRender
             condition={!!customComponents.inputMessage}
-            show={customComponents.inputMessage && customComponents.inputMessage({
-              input, setInputValue, handleSubmit, placeholder
-            })}
+            show={
+              customComponents.inputMessage &&
+              customComponents.inputMessage({
+                input,
+                setInputValue,
+                handleSubmit,
+                placeholder,
+                setState,
+                state,
+              })
+            }
             elseShow={inputArea}
           />
         </div>
